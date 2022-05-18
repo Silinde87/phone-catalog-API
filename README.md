@@ -8,7 +8,7 @@ yarn install
 ```
 - Create ``.env`` file at root directory. It must include the following variables:
 ```
-DBURL=mongodb+srv://admin:<password>@cluster0.ij2vc.mongodb.net/?retryWrites=true&w=majority
+DBURL=mongodb+srv://admin:<password>@cluster0.ij2vc.mongodb.net/phoneCatalaog?retryWrites=true&w=majority
 PORT=6000
 ```
 
@@ -30,11 +30,11 @@ Phone model
   manufacturer: { type: String, required: true },
   description: { type: String, required: true },
   color: { type: String, required: true },
-  price: { type: number, required: true, minimum: 0 },
+  price: { type: Number, required: true, minimum: 0 },
   imageFileName: { type: String, required: true },
   screen: { type: String, required: true },
   processor: { type: String, required: true },
-  ram: { type: number, required: true, minimum: 0 },
+  ram: { type: Number, required: true, minimum: 0 },
 }
 ```
 
