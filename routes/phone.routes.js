@@ -7,8 +7,7 @@ router.get('/phones', (req, res, next) => {
 	Phone.find({})
 		.then((phones) => res.status(200).json(phones))
 		.catch((error) => {
-			res.status(404).json({ message: error });
-			console.error(error);
+			return res.status(404).json({ message: error });
 		});
 });
 
@@ -60,6 +59,15 @@ router.post('/phones', (req, res, next) => {
 			return res.status(200).json(newPhone);
 		})
 		.catch((error) => res.status(500).json({ message: error }));
+});
+
+router.delete('/phones/:id/delete', (req, res, next) => {
+	Phone.findByIdAndDelete(req.params.id, (error, phone) => {
+		if (error || phone === null) {
+			return res.status(404).json({ message: 'Phone not found' });
+		}
+		return res.status(200).json({ message: `Phone id: ${req.params.id} successfully removed` });
+	});
 });
 
 module.exports = router;

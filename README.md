@@ -51,6 +51,6 @@ Phone model
 | HTTP Method | URL           | Request Body | Success status | Error Status | Description        |
 | ----------- | ------------- | ------------ | -------------- | ------------ | ------------------ |
 | GET         | `/api/phones` | { }          | 200            | 404          | Get all the phones |
-| POST        | `/api/phones` | { }          | 200            |           | Creates a phone    |
-| PUT       |`/api/phones/:id`| { }          | 200            |         | Updates a phone based on his id |
-| DELETE    |`/api/phones/:id`| { }          | 200            |          | Deletes a phone based on his id|
+| POST        | `/api/phones` |{ Phone model }| 200            | 400 / 500    | Creates a phone    |
+| PUT       |`/api/phones/:id`|{ Phone model }| 200            |         | Updates a phone based on his id |
+| DELETE    |`/api/phones/:id/delete`|           | 200            |          | Deletes a phone based on his id|
