@@ -22,4 +22,7 @@ app.use((req, res, next) => {
 	next();
 });
 
+const phoneRouter = require('./routes/phone.routes');
+app.use('/api', phoneRouter);
+
 module.exports = app;
