@@ -53,4 +53,4 @@ Phone model
 | GET         | `/api/phones` | { }          | 200            | 404          | Get all the phones |
 | POST        | `/api/phones` |{ Phone model }| 200           |  400 / 500   | Creates a phone    |
 | PUT       |`/api/phones/:id`|{ Phone model }| 200           |    400 / 404 | Updates a phone based on his id |
-| DELETE    |`/api/phones/:id/delete`|       | 200            |      404     | Deletes a phone based on his id|
+| DELETE    |`/api/phones/:id`|              | 200            |      404     | Deletes a phone based on his id |

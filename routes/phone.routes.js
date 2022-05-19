@@ -89,7 +89,7 @@ router.put('/phones/:id', (req, res, next) => {
 	});
 });
 
-router.delete('/phones/:id/delete', (req, res, next) => {
+router.delete('/phones/:id', (req, res, next) => {
 	Phone.findByIdAndDelete(req.params.id, (error, phone) => {
 		if (error || phone === null) {
 			return res.status(404).json({ message: 'Phone not found' });
