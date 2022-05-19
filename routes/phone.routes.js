@@ -61,6 +61,34 @@ router.post('/phones', (req, res, next) => {
 		.catch((error) => res.status(500).json({ message: error }));
 });
 
+router.put('/phones/:id', (req, res, next) => {
+	const { price } = req.body;
+
+	console.log(price);
+	if (price && isPriceValueNotValid(price)) {
+		return res.status(400).json({ message: 'price value should be higher than 0' });
+	}
+
+	if (price && isPriceTypeNotValid(price)) {
+		return res.status(400).json({ message: 'price value should be type number' });
+	}
+
+	let updatedPhone = {};
+	for (const key in req.body) {
+		if (!req.body[key]) {
+			return res.status(400).json({ message: 'Please fill all fields according to requirements' });
+		}
+		updatedPhone = { ...updatedPhone, [key]: req.body[key] };
+	}
+
+	Phone.findByIdAndUpdate(req.params.id, updatedPhone, (error, phone) => {
+		if (error || phone === null) {
+			return res.status(404).json({ message: 'Phone not found' });
+		}
+		return res.status(200).json({ message: `Phone id: ${req.params.id} successfully updated` });
+	});
+});
+
 router.delete('/phones/:id/delete', (req, res, next) => {
 	Phone.findByIdAndDelete(req.params.id, (error, phone) => {
 		if (error || phone === null) {
