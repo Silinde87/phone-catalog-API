@@ -3,16 +3,20 @@
 This repository is the API of The Phone Catalog
 
 ## Before start
+
 ```
 yarn install
 ```
-- Create ``.env`` file at root directory. It must include the following variables:
+
+-   Create `.env` file at root directory. It must include the following variables:
+
 ```
 DBURL=mongodb+srv://admin:<password>@cluster0.ij2vc.mongodb.net/phoneCatalaog?retryWrites=true&w=majority
 PORT=6000
 ```
 
 Once everything is set:
+
 ```
 yarn start
 ```
@@ -34,13 +38,19 @@ Phone model
   imageFileName: { type: String, required: true },
   screen: { type: String, required: true },
   processor: { type: String, required: true },
-  ram: { type: Number, required: true, minimum: 0 },
+  ram: { type: String, required: true },
+  camera: { type: String, required: true },
+  battery: { type: String, required: true },
+  storage: { type: String, required: true },
+  screenResolution: { type: String, required: true },
 }
 ```
 
 ## API Endpoints (backend routes)
 
-| HTTP Method |       URL      | Request Body         | Success status | Error Status | Description              |
-| ----------- | -------------- | -------------------- | -------------- | ------------ | ------------------------ |
-| GET         | `/api/phones`  |          {  }        |   200          |     403      | Get all the phones       |
-
+| HTTP Method | URL           | Request Body | Success status | Error Status | Description        |
+| ----------- | ------------- | ------------ | -------------- | ------------ | ------------------ |
+| GET         | `/api/phones` | { }          | 200            | 404          | Get all the phones |
+| POST        | `/api/phones` | { }          | 200            |           | Creates a phone    |
+| PUT       |`/api/phones/:id`| { }          | 200            |         | Updates a phone based on his id |
+| DELETE    |`/api/phones/:id`| { }          | 200            |          | Deletes a phone based on his id|
