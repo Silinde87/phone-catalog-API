@@ -11,7 +11,11 @@ const phoneSchema = new Schema(
 		imageFileName: { type: String, required: true },
 		screen: { type: String, required: true },
 		processor: { type: String, required: true },
-		ram: { type: Number, required: true, minimum: 0 },
+		ram: { type: String, required: true },
+		camera: { type: String, required: true },
+		battery: { type: String, required: true },
+		storage: { type: String, required: true },
+		screenResolution: { type: String, required: true },
 	},
 	{
 		timestamps: true,
